@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illegal Fishing Detection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Illegal Fishing Detection</h1>
+        </div>
+        <div class="content" id="content-box">
+            <!-- Dữ liệu sẽ hiển thị ở đây -->
+        </div>
+        <div class="buttons">
+            <button onclick="triggerFileInput('Upload Fishing Dataset')">Upload Fishing Dataset</button>
+            <button onclick="triggerFileInput('Preprocess Dataset')">Preprocess Dataset</button>
+            <button onclick="triggerFileInput('Generate Train & Test Data')">Generate Train & Test Data</button>
+            <button onclick="triggerFileInput('Build Regression Model')">Build Regression Model</button>
+            <button onclick="triggerFileInput('Predict Illegal Fishing')">Predict Illegal Fishing</button>
+        </div>
+    </div>
+
+    <!-- Ẩn input để chọn file, sẽ được kích hoạt khi nhấn nút -->
+    <input type="file" id="file-upload" style="display: none;" />
+
+    <script src="script.js"></script>
+</body>
+</html>

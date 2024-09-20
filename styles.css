@@ -1,0 +1,62 @@
+/* Đặt hình nền toàn màn hình */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('images/fishing.jpg'); /* Đường dẫn đến hình ảnh */
+    background-size: cover; /* Giúp hình ảnh phủ toàn bộ màn hình */
+    background-position: center; /* Căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Đặt container có chiều rộng tối đa như trước */
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(0, 169, 169, 0.8); /* Màu nền của container với độ trong suốt */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Các thành phần khác vẫn giữ nguyên */
+.header h1 {
+    text-align: center;
+    color: yellow; 
+    background-color: purple;
+    padding: 20px;
+}
+
+.content {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}

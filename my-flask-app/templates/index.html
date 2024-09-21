@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản đồ với thanh công cụ</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100%;
+      width: calc(100% - 250px); /* Trừ phần sidebar */
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+    .sidebar h2 {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .sidebar button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Thanh công cụ bên trái -->
+  <div class="sidebar">
+    <h2>Tùy chọn bản đồ</h2>
+    <ul>
+      <li><button onclick="changeToSatellite()">Chế độ vệ tinh</button></li>
+      <li><button onclick="changeToStreet()">Chế độ bản đồ đường</button></li>
+      <li><button onclick="zoomIn()">Phóng to</button></li>
+      <li><button onclick="zoomOut()">Thu nhỏ</button></li>
+    </ul>
+  </div>
+
+  <!-- Div chứa bản đồ -->
+  <div id="map"></div>
+
+  <!-- Nhúng thư viện Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Tạo bản đồ và lớp bản đồ ban đầu
+    var map = L.map('map').setView([0, -118.53230574227788], 2);
+
+    // Lớp bản đồ OpenStreetMap
+    var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Lớp bản đồ vệ tinh (có thể đổi URL để sử dụng lớp khác như Mapbox)
+    var satelliteLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    });
+
+    // Chuyển sang chế độ vệ tinh
+    function changeToSatellite() {
+      map.removeLayer(streetLayer);
+      map.addLayer(satelliteLayer);
+    }
+
+    // Chuyển về chế độ đường phố
+    function changeToStreet() {
+      map.removeLayer(satelliteLayer);
+      map.addLayer(streetLayer);
+    }
+
+    // Chức năng phóng to
+    function zoomIn() {
+      map.zoomIn();
+    }
+
+    // Chức năng thu nhỏ
+    function zoomOut() {
+      map.zoomOut();
+    }
+  </script>
+</body>
+</html>
